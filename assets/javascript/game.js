@@ -18,8 +18,18 @@ document.onkeyup= function(event) {
         userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || 
         userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || 
         userGuess === "z"){
-            console.log(userGuess);
+            if (userGuess === computerGuess){
+                wins++;
+            } else {
+                guessesLeft -- ;
+
+            }
         } else {
                 alert("Choose a letter to play!");
         }
-    }
+
+        if 
+
+
+
+}
