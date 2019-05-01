@@ -5,31 +5,39 @@ var directionsText = document.getElementById("directions");
 var winsText = document.getElementById("wins");
 var lossesText = document.getElementById("losses");
 var userGuessText = document.getElementById("userGuess");
-var guessesLeft = document.getElementById("guessesLeft");
+var guessesLeftText = document.getElementById("guessesLeft");
+var guessesLeft = 9;
+var lettersGuessed = [];
+var computerGuess = [];
 
-var computerGuess = computerOptions [Math.floor(Math.random() * computerOptions.length)];
+var computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
 
-document.onkeyup= function(event) {
+document.onkeyup = function(event) {
     var userGuess = event.key.toLowerCase();
 
-    if (userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" || 
-        userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" || 
-        userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" || 
-        userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" || 
-        userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" || 
-        userGuess === "z"){
-            if (userGuess === computerGuess){
-                wins++;
-            } else {
-                guessesLeft -- ;
-
-            }
-        } else {
-                alert("Choose a letter to play!");
+    if (userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" ||
+        userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" ||
+        userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" ||
+        userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" ||
+        userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" ||
+        userGuess === "z") {
+        if (userGuess === computerGuess) {
+            alert("You Guessed Correctly!");
+            wins++;
+        
+        
+        if (userGuess !== computerGuess) {
+            guessesLeftText = guessesLeft-1;
         }
+    }
 
-        if 
-
-
-
-}
+    
+    // if else() {
+    //     alert("Pick a correct letter to play!");
+    
+    console.log();
+    }
+    directionsText.textContent = "";
+    winsText.textContent = wins;
+    lossesText.textContent = losses;
+    userGuessText.textContent = userGuess;}
