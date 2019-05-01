@@ -1,12 +1,12 @@
 var computerOptions = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var wins = 0;
 var losses = 0;
+var guessesLeft = 9;
 var directionsText = document.getElementById("directions");
 var winsText = document.getElementById("wins");
 var lossesText = document.getElementById("losses");
 var userGuessText = document.getElementById("userGuess");
 var guessesLeftText = document.getElementById("guessesLeft");
-var guessesLeft = 9;
 var lettersGuessed = [];
 var computerGuess = [];
 
@@ -20,23 +20,26 @@ document.onkeyup = function(event) {
         userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" ||
         userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" ||
         userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" ||
-        userGuess === "z") {
+        userGuess === "z") 
         if (userGuess === computerGuess) {
-            alert("You Guessed Correctly!");
+            alert("Your guess of " + userGuess + " is correct!");
             wins++;
-        
-        
-        if (userGuess !== computerGuess) {
-            guessesLeftText = guessesLeft-1;
-        }
-    }
+            computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
 
+        } else {
+            guessesLeft--;
+        }
+        
+        
+       
     
-    // if else() {
-    //     alert("Pick a correct letter to play!");
+        
     
-    console.log();
-    }
+// if else() 
+//         alert("Pick a correct letter to play!");
+    
+   
+    
     directionsText.textContent = "";
     winsText.textContent = wins;
     lossesText.textContent = losses;
