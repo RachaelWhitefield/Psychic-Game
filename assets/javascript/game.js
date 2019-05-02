@@ -8,13 +8,13 @@ var lossesText = document.getElementById("losses");
 var userGuessText = document.getElementById("userGuess");
 var guessesLeftText = document.getElementById("guessesLeft");
 var lettersGuessed = [];
-var computerGuess = [];
 
 var computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
 
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
-
+    lettersGuessed.push(" " + userGuess);
+    console.log(lettersGuessed);
     if (userGuess === "a" || userGuess === "b" || userGuess === "c" || userGuess === "d" || userGuess === "e" ||
         userGuess === "f" || userGuess === "g" || userGuess === "h" || userGuess === "i" || userGuess === "j" ||
         userGuess === "k" || userGuess === "l" || userGuess === "m" || userGuess === "n" || userGuess === "o" ||
@@ -26,6 +26,7 @@ document.onkeyup = function (event) {
             wins++;
             computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
             guessesLeft = 9;
+            lettersGuessed = [];
 
         } else {
             guessesLeft--;
@@ -35,20 +36,23 @@ document.onkeyup = function (event) {
                 losses++;
                 computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
                 guessesLeft = 9;
+                lettersGuessed = [];
 
             }
 
 
         }
+        
+    } else {
+            alert("Pick a correct letter to play!");
+
+        }
 
 
+
+        directionsText.textContent = "";
+        winsText.textContent = wins;
+        lossesText.textContent = losses;
+        userGuessText.textContent = lettersGuessed;
+        guessesLeftText.textContent = guessesLeft;
     }
-
-
-
-    directionsText.textContent = "";
-    winsText.textContent = wins;
-    lossesText.textContent = losses;
-    userGuessText.textContent = userGuess;
-    guessesLeftText.textContent = guessesLeft;
-}
