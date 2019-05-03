@@ -10,6 +10,7 @@ var guessesLeftText = document.getElementById("guessesLeft");
 var lettersGuessed = [];
 
 var computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+console.log(computerGuess);
 
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
@@ -21,38 +22,31 @@ document.onkeyup = function (event) {
         userGuess === "p" || userGuess === "q" || userGuess === "r" || userGuess === "s" || userGuess === "t" ||
         userGuess === "u" || userGuess === "v" || userGuess === "w" || userGuess === "x" || userGuess === "y" ||
         userGuess === "z") {
+
         if (userGuess === computerGuess) {
-            alert("Your guess of " + userGuess + " is correct!");
             wins++;
             computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+            console.log(computerGuess);
             guessesLeft = 9;
             lettersGuessed = [];
-
         } else {
             guessesLeft--;
-
             if (guessesLeft === 0) {
                 alert("You're out of guesses!");
                 losses++;
                 computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
-                guessesLeft = 9;
+                guessesLeft=9;
                 lettersGuessed = [];
+                console.log(computerGuess);
 
             }
-
-
         }
-        
     } else {
-            alert("Pick a correct letter to play!");
-
-        }
-
-
-
-        directionsText.textContent = "";
-        winsText.textContent = wins;
-        lossesText.textContent = losses;
-        userGuessText.textContent = lettersGuessed;
-        guessesLeftText.textContent = guessesLeft;
+        alert("Pick a correct letter to play!");
     }
+    directionsText.textContent = "";
+    winsText.textContent = wins;
+    lossesText.textContent = losses;
+    guessesLeftText.textContent = guessesLeft;
+    userGuessText.textContent = lettersGuessed;
+}
